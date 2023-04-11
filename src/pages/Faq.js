@@ -1,10 +1,10 @@
 import Header from "../Components/Header"
 
-export default function Home() {
+export default function Faq() {
     return (
         <div className="bg-black min-h-screen text-white">
-            <Header/>
-            <h1 className="flex justify-center items-center">Home</h1>
+             <Header/>
+            <h1 className="flex justify-center items-center">Faq</h1>
         </div>
     )
 }
