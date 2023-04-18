@@ -55,6 +55,10 @@ export default function Poster() {
     if (isLoading) return(<h1>Loading ...</h1>)
     if (error !== null) return(<h1>ERROR</h1>)
 
+    const handler = (index) => {
+        console.log(index);
+    }
+
     return (
         <div className="h-screen bg-center bg-cover items-end" style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${movies[index].backdrop_path}")`}}>
             <div className='h-screen bg-gradient-to-b from-[#000000b5] from-10% via-transparent via-50% to-black to-80%'>
@@ -115,9 +119,9 @@ export default function Poster() {
                             },
                           }}
                     >
-                        {movies.map((movie) => (
+                        {movies.map((movie, index) => (
                             <SwiperSlide key={movie.id}>
-                                <PosterCard movie={movie}/>
+                                <PosterCard movie={movie} index={index} handler={handler}/>
                             </SwiperSlide> 
                         ))}
 
