@@ -14,7 +14,7 @@ export default function Poster() {
     const [isLoading, setIsLoading] = useState(true);
     const [movies, setMovies] = useState([]);
     const [index, setIndex] = useState(0);
-
+    const [Video, setVideo] = useState(0);
 
     useEffect(() => {
         const liveTimeMovies = localStorage.getItem("popularTimestamp");
@@ -52,6 +52,12 @@ export default function Poster() {
 
       }, [])
 
+      useEffect(()=> {
+
+      }, [])
+
+      
+
     if (isLoading) return(<h1>Loading ...</h1>)
     if (error !== null) return(<h1>ERROR</h1>)
 
@@ -87,6 +93,9 @@ export default function Poster() {
                                     <span className='font-bold text-black'>{movies[index].release_date}</span>
                                 </div>
                             </div>
+
+                            <PosterVideo/>
+                        
                             
                         </div>
                     </div>
