@@ -1,8 +1,8 @@
 
 export default function ViewListCard(props) {
 
+        const {data} = props
 
-    const {title, list} = props
     
         return (
             <div className="bg-black border-2 border-white p-6">
@@ -16,7 +16,7 @@ export default function ViewListCard(props) {
                         <span>4 097</span>
                     </div>
                     <div>
-                     <h3>Name of the film</h3>
+                     <h3>Name of the movie</h3>
                     </div>
                 </div>
             </div>

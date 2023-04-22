@@ -18,6 +18,12 @@ useEffect(
             setData(answer.results)
             setIsLoading(false)
         })
+        // fetch(url)
+        // .then( Response => Response.json())
+        // .then(answer => {
+        //     setData(answer.results)
+        //     setIsLoading(false)
+        // })
     },
     []
 )
