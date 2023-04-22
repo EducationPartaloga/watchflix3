@@ -3,10 +3,9 @@ import PosterCard from "./PosterCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 
-// Import Swiper styles
 import "swiper/css";
-// import "swiper/css/pagination";
 import "swiper/css/navigation";
+import PosterVideo from "./PosterVideo";
 
 export default function Poster() {
 
@@ -14,7 +13,7 @@ export default function Poster() {
     const [isLoading, setIsLoading] = useState(true);
     const [movies, setMovies] = useState([]);
     const [index, setIndex] = useState(0);
-    const [Video, setVideo] = useState(0);
+
 
     useEffect(() => {
         const liveTimeMovies = localStorage.getItem("popularTimestamp");
@@ -52,17 +51,13 @@ export default function Poster() {
 
       }, [])
 
-      useEffect(()=> {
-
-      }, [])
-
-      
 
     if (isLoading) return(<h1>Loading ...</h1>)
     if (error !== null) return(<h1>ERROR</h1>)
 
+
     const handler = (index) => {
-        console.log(index);
+        setIndex(index);
     }
 
     return (
@@ -80,62 +75,62 @@ export default function Poster() {
                             </p>
                             
                             <div className="flex gap-8 mt-8">
-                                <div className='flex items-center gap-2 bg-yellow-500 px-4 py-1 rounded-xl border border-yellow-900'>
+                                <div className='flex items-center gap-2 bg-yellow-300 px-4 py-1 rounded-xl border border-yellow-900'>
                                     <span className='text-slate-600'>Rating:</span>
                                     <span className='font-bold text-black '>{movies[index].vote_average}</span>
                                 </div>
-                                <div className='flex items-center gap-2 bg-yellow-500 px-4 py-1 rounded-xl border border-yellow-900'>
+                                <div className='flex items-center gap-2 bg-yellow-300 px-4 py-1 rounded-xl border border-yellow-900'>
                                     <span className='text-slate-600'>Vote count:</span>
                                     <span className='font-bold text-black'>{movies[index].vote_count}</span>
                                 </div> 
-                                <div className='flex items-center gap-2 bg-yellow-500 px-4 py-1 rounded-xl border border-yellow-900'>
+                                <div className='flex items-center gap-2 bg-yellow-300 px-4 py-1 rounded-xl border border-yellow-900'>
                                     <span className='text-slate-600'>Release date:</span>
                                     <span className='font-bold text-black'>{movies[index].release_date}</span>
                                 </div>
                             </div>
 
-                            <PosterVideo/>
-                        
+                            <PosterVideo movieId={movies[index].id}/>
                             
                         </div>
                     </div>
 
-                    {/* <div className='flex'> */}
-                    <Swiper
-                        slidesPerView={4}
-                        spaceBetween={30}
-                        grabCursor={true}
-                        navigation={true}
-                        modules={[Navigation]}
-                        pagination={false}
-                        className="mx-auto flex flex-row relative w-full p-6"
-                        breakpoints={{
-                            320: {
-                              slidesPerView: 1,
-                              spaceBetween: 12,
-                            },
-                            640: {
-                              slidesPerView: 2,
-                              spaceBetween: 12,
-                            },
-                            1024: {
-                              slidesPerView: 3,
-                              spaceBetween: 16,
-                            },
-                            1336: {
-                              slidesPerView: 4,
-                              spaceBetween: 30,
-                            },
-                          }}
-                    >
-                        {movies.map((movie, index) => (
-                            <SwiperSlide key={movie.id}>
-                                <PosterCard movie={movie} index={index} handler={handler}/>
-                            </SwiperSlide> 
-                        ))}
+                    <div className=''>
+                        <div className='text-4xl mb-6'>Now Popular:</div>
+                        <Swiper
+                            slidesPerView={4}
+                            spaceBetween={30}
+                            grabCursor={true}
+                            navigation={true}
+                            modules={[Navigation]}
+                            pagination={false}
+                            className="mx-auto flex flex-row relative w-full p-6"
+                            breakpoints={{
+                                320: {
+                                slidesPerView: 1,
+                                spaceBetween: 12,
+                                },
+                                640: {
+                                slidesPerView: 2,
+                                spaceBetween: 12,
+                                },
+                                1024: {
+                                slidesPerView: 3,
+                                spaceBetween: 16,
+                                },
+                                1336: {
+                                slidesPerView: 4,
+                                spaceBetween: 30,
+                                },
+                            }}
+                        >
+                            {movies.map((movie, index) => (
+                                <SwiperSlide key={movie.id}>
+                                    <PosterCard movie={movie} index={index} handler={handler}/>
+                                </SwiperSlide>
+                            ))}
 
-                    </Swiper>
-                    {/* </div> */}
+                        </Swiper>
+                    </div>
 
                 </div>
             </div>
