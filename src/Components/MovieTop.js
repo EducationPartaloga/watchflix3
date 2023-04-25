@@ -34,7 +34,7 @@ useEffect(
 
 
     if (isLoadingMovies === false && isLoadingGenres === false) {
-        for (let index = 0; index < 5; index++) {
+        for (let index = 0; index < 6; index++) {
             const movie = movies[index];
             let newArrayGenres = []
             movie.genre_ids.map((id)=>{
@@ -59,7 +59,6 @@ useEffect(
 
     }
 
-   
 
     if (isLoadingMovies || isLoadingGenres)  
     return(<div>Загружается...</div>)
@@ -70,9 +69,10 @@ useEffect(
             <h2 className="text-md text-3xl">Top Movies</h2>
             <button className="text-yellow-300">View More</button>
             </div>
+            <div className="grid grid-cols-3 gap-4">
             {list}
-          
-       {/* <ViewListCard title ={} image ={} genres ={} voteAverage ={} voteCount = {}/> */}
+            </div>
+      
 
         </div>
     )
