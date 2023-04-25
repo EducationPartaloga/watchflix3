@@ -8,10 +8,10 @@ export default function ViewList(props) {
     const [movies, setMovies] = useState([])
     const [genres, setGenres] = useState([])
     const [isLoadingMovies, setIsLoadingMovies] = useState(true)
-    const [isLoadingGenres, setisLoadingGenres] = useState(true)
+    const [isLoadingGenres, setIsLoadingGenres] = useState(true)
 
     const topMoviesUrl = 'https://api.themoviedb.org/3/movie/top_rated?api_key=46b3d80e68c3305b185dc8a255c58fac&language=en-US&page=1'
-    const genresUrl = "https://api.themoviedb.org/3/genre/movie/list?api_key=<<api_key>>&language=en-US"
+    const genresUrl = "https://api.themoviedb.org/3/genre/movie/list?api_key=46b3d80e68c3305b185dc8a255c58fac&language=en-US"
 
 useEffect(
     ()=>{
@@ -32,30 +32,36 @@ useEffect(
 )
     let list = []
 
-    {for (let index = 0; index < 5; index++) {
-         const movie = movies[index];
-         const newArrayGenres = []
-         movie.genres_ids.map((id)=>{
-           newArrayGenres = genres.filter((genre)=>{
-            return genre.id === id
+
+    if (isLoadingMovies === false && isLoadingGenres === false) {
+        for (let index = 0; index < 5; index++) {
+            const movie = movies[index];
+            let newArrayGenres = []
+            movie.genre_ids.map((id)=>{
+              newArrayGenres = genres.filter((genre)=>{
+               return genre.id === id
+              })
+    
            })
+    
+    
+           list.push(
+                <ViewListCard 
+               title ={movie.title} 
+               image ={movie.poster_path} 
+               genres ={newArrayGenres} 
+               voteAverage ={movie.vote_average} 
+               voteCount ={movie.vote_count}
+       />
+       )
+    
+    }
 
-        })
+    }
 
+   
 
-        list.push(
-             <ViewListCard 
-            title ={movie.title} 
-            image ={movie.poster_path} 
-            genres ={newArrayGenres} 
-            voteAverage ={movie.vote_average} 
-            voteCount ={movie.vote_count}
-    />
-    )
-
-}}
-
-    if (isLoadingMovies || IsLoadingGenres)  
+    if (isLoadingMovies || isLoadingGenres)  
     return(<div>Загружается...</div>)
 
     return (

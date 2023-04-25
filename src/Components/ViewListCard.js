@@ -1,7 +1,7 @@
 
 export default function ViewListCard(props) {
 
-        const {data} = props
+        // const {data} = props
 
     
         return (
