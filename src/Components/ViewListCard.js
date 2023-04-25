@@ -5,7 +5,7 @@ export default function ViewListCard(props) {
 
     
         return (
-            <div className="flex justify-between flex-col w-[300px] h-[400px] p-6 bg-center bg-cover" style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${image}")`}}>
+            <div className="w-[300px] h-[400px] bg-center bg-cover" style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${image}")`}}>
                 <div className="flex justify-between flex-col w-[300px] h-[400px] p-5 bg-gradient-to-b from-transparent from-60% to-black to-80%">
 
                 
