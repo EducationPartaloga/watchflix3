@@ -9,10 +9,10 @@ export default function ViewListCard(props) {
                 <div className="flex justify-between flex-col w-[300px] h-[400px] p-5 bg-gradient-to-b from-transparent from-60% to-black to-80%">
 
                 
-                <div className="flex">
-                {genres.map((genre)=>{
+                <div className="flex gap-1 flex-wrap">
+                {genres.map((genre, index)=>{
                             return ( 
-                                <span className="rounded-md bg-yellow-300 text-black py-[2px] px-2">
+                                <span key={index} className="rounded-md bg-yellow-300 text-black py-[2px] px-2 text-[10px]">
                                 {genre.name}
                                 </span>
                             )
@@ -36,7 +36,7 @@ export default function ViewListCard(props) {
                         </span>
                     </div>
                     <div>
-                     <h3 className="text-2xl">{title}</h3>
+                     <h3 className="text-2xl text-center">{title}</h3>
                     </div>
                 </div>
                 </div>
