@@ -2,6 +2,7 @@
 import Poster from "../Components/Poster";
 import MovieTop from "../Components/MovieTop";
 import TVShowTop from "../Components/TVShowTop";
+import VideoView from "../Components/VideoView";
 
 export default function Home() {
 
@@ -14,6 +15,7 @@ export default function Home() {
             <Poster/>
             <MovieTop/>
             <TVShowTop/>
+            <VideoView/>
           
             {/* <ViewList title = {"Top movies"} url={topMoviesurl}/>
             <ViewList title = {"Top TV show"} url={toptvShowurl}/> */}

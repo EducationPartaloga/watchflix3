@@ -9,7 +9,6 @@ import "swiper/css/navigation";
 export default function PosterVideo(props) {
 
     const { movieId } = props;
-
     const [video, setVideos] = useState(null);
     const [loading, setLoading] = useState(true);
     const [isOpen, setOpen] = useState(false)
