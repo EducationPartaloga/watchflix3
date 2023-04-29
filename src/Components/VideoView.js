@@ -21,6 +21,19 @@ export default function VideoView() {
         },[]
     )
     
+    // useEffect(
+    //     () => {
+    //         if(isLoadingListTV){
+    //         const url = ListTV[randomListTV].backdrop_path ? "https://image.tmdb.org/t/p/original" + ListTV[randomListTV].backdrop_path : "https://www.planetware.com/pictures/france-f.htm"
+    //         {fetch(ListTVUrl)
+    //             .then(Response => Response.json())
+    //             .then(answer => {
+    //                 setListTV(answer.results)
+    //                 setIsLoadingListTV(false)
+    //             })
+    //     }, [ListTV])
+    // )
+
 
     if (isLoadingListTV) {
     return (<div>Загружается...</div>)
