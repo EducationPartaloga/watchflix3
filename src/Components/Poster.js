@@ -8,12 +8,10 @@ import "swiper/css/navigation";
 import PosterVideo from "./PosterVideo";
 
 export default function Poster() {
-
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [movies, setMovies] = useState([]);
     const [index, setIndex] = useState(0);
-
 
     useEffect(() => {
         const liveTimeMovies = localStorage.getItem("popularTimestamp");
@@ -49,17 +47,14 @@ export default function Poster() {
             setIsLoading(false);
         }
 
-      }, [])
-
+    }, [])
 
     if (isLoading) return(<h1>Loading ...</h1>)
     if (error !== null) return(<h1>ERROR</h1>)
 
-
     const handler = (index) => {
         setIndex(index);
     }
-
     return (
         <div className="h-screen bg-center bg-cover items-end" style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${movies[index].backdrop_path}")`}}>
             <div className='h-screen bg-gradient-to-b from-[#000000b5] from-10% via-transparent via-50% to-black to-80%'>
@@ -68,22 +63,22 @@ export default function Poster() {
                     <div className='mt-28'>
                         <div className=''>
                             <span className='text-4xl md:text-7xl '>
-                                {movies[index].original_title}
+                                {movies[index].title}
                             </span>
                              <p className='max-w-2xl mt-8 text-slate-300'>
                                 {movies[index].overview}
                             </p>
                             
                             <div className="flex gap-8 mt-8">
-                                <div className='flex items-center gap-2 bg-yellow-300 px-4 py-1 rounded-xl border border-yellow-900'>
+                                <div className='flex items-center gap-2 bg-yellow-500 px-4 py-1 rounded-xl border border-yellow-900'>
                                     <span className='text-slate-600'>Rating:</span>
                                     <span className='font-bold text-black '>{movies[index].vote_average}</span>
                                 </div>
-                                <div className='flex items-center gap-2 bg-yellow-300 px-4 py-1 rounded-xl border border-yellow-900'>
+                                <div className='flex items-center gap-2 bg-yellow-500 px-4 py-1 rounded-xl border border-yellow-900'>
                                     <span className='text-slate-600'>Vote count:</span>
                                     <span className='font-bold text-black'>{movies[index].vote_count}</span>
                                 </div> 
-                                <div className='flex items-center gap-2 bg-yellow-300 px-4 py-1 rounded-xl border border-yellow-900'>
+                                <div className='flex items-center gap-2 bg-yellow-500 px-4 py-1 rounded-xl border border-yellow-900'>
                                     <span className='text-slate-600'>Release date:</span>
                                     <span className='font-bold text-black'>{movies[index].release_date}</span>
                                 </div>
@@ -134,7 +129,6 @@ export default function Poster() {
 
                 </div>
             </div>
-            
         </div>
     )
 }
