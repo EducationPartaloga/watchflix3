@@ -1,18 +1,14 @@
 export default function Form(props) {
 
-    const {name, color} = props
+    const { children } = props
 
     console.log ('name', 'color')
 
     return (
-        <form className=''>
+        <form className='grid gap-4 text-black'>
 
-            <div className='max-w-screen-2xl mx-auto flex flex-col justify-between'>
-                b nvfgcnbvfgcnbhhgv
-
-
-
-            </div>
+            {children}
+            
         </form>
 
     )
