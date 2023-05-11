@@ -13,7 +13,7 @@ export default function Footer() {
                         <button className=' bg-yellow-300 rounded-md p-3 -ml-12 '><ArrowRightIcon className='h-4 w-4 text-black' /></button>
                     </div>
                 </div>
-                <div className=' px-16 py-28 grid-cols-2'>
+                <div className=' px-16 py-28 col-span-2'>
                     <div className='flex gap-40'>
                         <div className='drid gap-2'>
                             <h4 className='font-bold'>Product 
