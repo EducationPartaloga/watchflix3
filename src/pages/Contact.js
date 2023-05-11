@@ -10,7 +10,7 @@ export default function Contact() {
             <h1 className="flex justify-center items-center">форма отправки данных</h1>
             <Form buttonText="Send information">
                 <FormField type='text' id='firstName' name='firstName' label='Your name'/>
-                <FormField type='e-mail' id='e-mail' name='e-mail' label='e-mail'/>
+                <FormField type='email' id='e-mail' name='e-mail' label='e-mail'/>
                 <FormField type='password'id='password' name='password' label='Password'/>
                 <FormField type='checkbox'id='access' name='access' label='Agreement'/>
             </Form>
