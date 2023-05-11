@@ -1,13 +1,16 @@
 export default function Form(props) {
 
-    const { children } = props
+    const { children, buttonText } = props
 
-    console.log ('name', 'color')
+    const handlerSubmit = () => {
+        alert('form sended')
+    }
 
     return (
-        <form className='grid gap-4 text-black'>
+        <form className='grid gap-4 text-black' onSubmit={handlerSubmit}>
 
             {children}
+            <button className='bg-yellow-300 rounded-md p-4' type='submit'>{buttonText}</button>
             
         </form>
 
